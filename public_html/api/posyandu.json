@@ -1,0 +1,270 @@
+{
+  "response_status": 200,
+  "response_desc": "OK",
+  "response_data": [
+    {
+      "kode": "A111",
+      "nama": "Posyandu Mawar 1",
+      "alamat": "Jl. Meruya Selatan No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2102982,
+        "lng": 106.7363191
+      },
+      "kader_jum": 8,
+      "status": 1
+    },
+    {
+      "kode": "A222",
+      "nama": "Posyandu Melati 1",
+      "alamat": "Jl. Meruya Barat No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2202982,
+        "lng": 106.7362191
+      },
+      "kader_jum": 7,
+      "status": 1
+    },
+    {
+      "kode": "A333",
+      "nama": "Posyandu Seroja 1",
+      "alamat": "Jl. Meruya Utara No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2109982,
+        "lng": 106.7363291
+      },
+      "kader_jum": 1,
+      "status": 0
+    },
+    {
+      "kode": "A112",
+      "nama": "Posyandu Mawar 2",
+      "alamat": "Jl. Meruya Selatan No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2102982,
+        "lng": 106.7364191
+      },
+      "kader_jum": 8,
+      "status": 1
+    },
+    {
+      "kode": "A2222",
+      "nama": "Posyandu Melati 2",
+      "alamat": "Jl. Meruya Barat No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2202982,
+        "lng": 106.7363591
+      },
+      "kader_jum": 7,
+      "status": 1
+    },
+    {
+      "kode": "A3332",
+      "nama": "Posyandu Seroja 2",
+      "alamat": "Jl. Meruya Utara No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2109982,
+        "lng": 106.7363991
+      },
+      "kader_jum": 1,
+      "status": 0
+    },
+    {
+      "kode": "A1113 ",
+      "nama": "Posyandu Mawar 3",
+      "alamat": "Jl. Meruya Selatan No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2102982,
+        "lng": 106.7363291
+      },
+      "kader_jum": 8,
+      "status": 1
+    },
+    {
+      "kode": "A2223",
+      "nama": "Posyandu Melati 3",
+      "alamat": "Jl. Meruya Barat No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2202982,
+        "lng": 106.7363391
+      },
+      "kader_jum": 7,
+      "status": 1
+    },
+    {
+      "kode": "A3333",
+      "nama": "Posyandu Seroja 3",
+      "alamat": "Jl. Meruya Utara No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2109982,
+        "lng": 106.7364191
+      },
+      "kader_jum": 1,
+      "status": 0
+    },
+    {
+      "kode": "A111",
+      "nama": "Posyandu Mawar",
+      "alamat": "Jl. Meruya Selatan No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2102482,
+        "lng": 106.7363491
+      },
+      "kader_jum": 8,
+      "status": 1
+    },
+    {
+      "kode": "A222",
+      "nama": "Posyandu Melati",
+      "alamat": "Jl. Meruya Barat No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2202984,
+        "lng": 106.7363195
+      },
+      "kader_jum": 7,
+      "status": 1
+    },
+    {
+      "kode": "A333",
+      "nama": "Posyandu Seroja",
+      "alamat": "Jl. Meruya Utara No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2109902,
+        "lng": 106.7363091
+      },
+      "kader_jum": 1,
+      "status": 0
+    },
+    {
+      "kode": "A111",
+      "nama": "Posyandu Mawar",
+      "alamat": "Jl. Meruya Selatan No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2102982,
+        "lng": 106.7363191
+      },
+      "kader_jum": 8,
+      "status": 1
+    },
+    {
+      "kode": "A222",
+      "nama": "Posyandu Melati",
+      "alamat": "Jl. Meruya Barat No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2202982,
+        "lng": 106.7363191
+      },
+      "kader_jum": 7,
+      "status": 1
+    },
+    {
+      "kode": "A333",
+      "nama": "Posyandu Seroja",
+      "alamat": "Jl. Meruya Utara No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2109982,
+        "lng": 106.7363191
+      },
+      "kader_jum": 1,
+      "status": 0
+    },
+    {
+      "kode": "A111",
+      "nama": "Posyandu Mawar",
+      "alamat": "Jl. Meruya Selatan No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2102982,
+        "lng": 106.7363191
+      },
+      "kader_jum": 8,
+      "status": 1
+    },
+    {
+      "kode": "A222",
+      "nama": "Posyandu Melati",
+      "alamat": "Jl. Meruya Barat No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2202982,
+        "lng": 106.7363191
+      },
+      "kader_jum": 7,
+      "status": 1
+    },
+    {
+      "kode": "A333",
+      "nama": "Posyandu Seroja",
+      "alamat": "Jl. Meruya Utara No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2109982,
+        "lng": 106.7363191
+      },
+      "kader_jum": 1,
+      "status": 0
+    },
+    {
+      "kode": "A111",
+      "nama": "Posyandu Mawar",
+      "alamat": "Jl. Meruya Selatan No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2102982,
+        "lng": 106.7363191
+      },
+      "kader_jum": 8,
+      "status": 1
+    },
+    {
+      "kode": "A222",
+      "nama": "Posyandu Melati",
+      "alamat": "Jl. Meruya Barat No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2202982,
+        "lng": 106.7363191
+      },
+      "kader_jum": 7,
+      "status": 1
+    },
+    {
+      "kode": "A333",
+      "nama": "Posyandu Seroja",
+      "alamat": "Jl. Meruya Utara No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2109982,
+        "lng": 106.7363191
+      },
+      "kader_jum": 1,
+      "status": 0
+    },
+    {
+      "kode": "A111",
+      "nama": "Posyandu Mawar",
+      "alamat": "Jl. Meruya Selatan No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2102982,
+        "lng": 106.7363191
+      },
+      "kader_jum": 8,
+      "status": 1
+    },
+    {
+      "kode": "A222",
+      "nama": "Posyandu Melati",
+      "alamat": "Jl. Meruya Barat No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2202982,
+        "lng": 106.7363191
+      },
+      "kader_jum": 7,
+      "status": 1
+    },
+    {
+      "kode": "A333",
+      "nama": "Posyandu Seroja",
+      "alamat": "Jl. Meruya Utara No. 1, Meruya Selatan, Kembangan, Daerah Khusus Ibukota Jakarta",
+      "koordinat": {
+        "lat": -6.2109982,
+        "lng": 106.7363191
+      },
+      "kader_jum": 1,
+      "status": 0
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+<include href="templates/header.html"/>
+<body>
+<div id="wrapper">
+    <!----->
+    <include href="templates/sidemenu.html"/>
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="content-main">
+
+            <!--banner-->
+            <div class="banner">
+                <h2>
+                    <a href="{{ @BASE_URL }}">Home</a>
+                    <repeat group="{{ @breadcumb }}" key="{{ @key }}" value="{{ @link }}">
+                        <i class="fa fa-angle-right"></i>
+                        <span><a href="{{@link}}">{{@key}}</a></span>
+                    </repeat>
+                </h2>
+            </div>
+            <!--//banner-->
+            <!--isi-->
+            <include href="{{'templates/'.@content}}"/>
+
+            <!--isi-->
+            <div class="copy">
+                <p> &copy; 2016 Minimal. All Rights Reserved | Design by <a href="http://w3layouts.com/"
+                                                                            target="_blank">W3layouts</a></p></div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<repeat group="{{@loadJS}}" value="{{ @nama_js }}">
+    <script src="{{ @BASE_URL .'ui/js/'. @nama_js .'.js'}}" type="text/javascript"></script>
+</repeat>
+<repeat group="{{@pageJS}}" value="{{ @nama_js }}">
+    <script src="{{ @BASE_URL .'ui/js/page/'. @nama_js .'.js'}}" type="text/javascript"></script>
+</repeat>
+</body>
+</html>

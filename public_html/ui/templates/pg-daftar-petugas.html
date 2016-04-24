@@ -1,0 +1,14 @@
+<div class="gallery">
+    <repeat group="{{ @para_petugas }}" value="{{ @petugas }}">
+        <div class="col-md">
+            <a href="{{@BASE_URL .'petugas/'. @petugas.id }}">
+            <div class="gallery-img">
+                <img class="img-responsive " src="{{@BASE_URL .'gambar/petugas/'. @petugas.foto }}" alt="{{ @petugas.nama }}"/>
+            </div>
+            <div class="text-gallery">
+                <h6>{{ @petugas.nama }}</h6>
+            </div>
+            </a>
+        </div>
+    </repeat>
+</div>
