@@ -90,7 +90,7 @@ var MAPPING = {
             } else {
                 // ambil data dari server kalo lom ada di lokal
                 $.ajax({
-                    url: "api/provinsi/",
+                    url: BASE_URL + "api/provinsi/",
                     beforeSend: function (xhr)
                     {
                         console.log("pesan dikirim");

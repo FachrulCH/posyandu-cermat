@@ -31,7 +31,7 @@ class Response_WS
     public function return_json()
     {
         header('Content-type:application/json;charset=utf-8');
-        $data = ["response" => $this->response_code,
+        $data = ["response_code" => $this->response_code,
                 "response_msg" => $this->response_desc,
                 "response_data" => $this->response_data];
         echo json_encode($data);
