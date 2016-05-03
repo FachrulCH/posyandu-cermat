@@ -1,7 +1,7 @@
 <div class="fch-isi">
     <div class="row">
         <div class="col-md-4">
-            <img src="<?php echo $BASE_URL . 'gambar/kadarzi.jpg'; ?>"/>
+            <img src="<?php echo $BASE_URL . 'gambar/kadarzi.jpg'; ?>" alt=""/>
             <br/>
             <br/>
         </div>

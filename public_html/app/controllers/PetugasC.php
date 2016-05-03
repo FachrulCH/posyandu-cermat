@@ -18,6 +18,8 @@ class PetugasC
         $f3->set('loadCSS', [
             'custom'
         ]);
+        
+        $f3->set('headJS', []);
         $f3->set('loadJS', [
             'jquery.flot',
             'jquery.nicescroll',

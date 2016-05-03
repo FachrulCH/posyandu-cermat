@@ -13,7 +13,7 @@
         </div>
         <div class="content-top-1">
             <div class="col-md-6 top-content">
-                <h5>Lansia</h5>
+                <h5>Balita BGM</h5>
                 <label>6295</label>
             </div>
             <div class="col-md-6 top-content1">

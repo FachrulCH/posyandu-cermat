@@ -9,11 +9,11 @@
 namespace controllers;
 
 
-class AnakC extends Response_WS
+class IbuC extends Response_WS
 {
     function getAll(){
         $f3 = \Base::instance();
-        $f3->set('breadcumb', ["Pendaftaran" => $f3->get('SESSION.LastPageURL'), "Daftar Anak" => $f3->get('SESSION.LastPageURL')]);
+        $f3->set('breadcumb', ["Pendaftaran" => $f3->get('SESSION.LastPageURL'), "Daftar Ibu" => $f3->get('SESSION.LastPageURL')]);
         $f3->set('loadCSS', [
             'custom'
         ]);
@@ -30,7 +30,7 @@ class AnakC extends Response_WS
         $f3->set('customJS', []);
         $f3->set('vendorJS', []);
         
-        $f3->set('content', 'pg-daftar-anak.html');
+        $f3->set('content', 'pg-daftar-ibu.html');
         echo \Template::instance()->render('templates/layout.html');
     }
 }

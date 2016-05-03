@@ -28,9 +28,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script src="<?php echo $BASE_URL .'ui/js/jquery.metisMenu.js'; ?>"></script>
     <script src="<?php echo $BASE_URL .'ui/js/jquery.slimscroll.min.js'; ?>"></script>
     <script src="<?php echo $BASE_URL .'ui/js/custom.js'; ?>"></script>
+    <?php foreach (($headJS?:array()) as $url): ?>
+        <script src="<?php echo $url; ?>" type="text/javascript"></script>
+    <?php endforeach; ?>
     <style>
         .nav-second-level li {
             padding-left: 20px;
         }
     </style>
+    <script>var BASE_URL = '<?php echo $BASE_URL; ?>';</script>
 </head>

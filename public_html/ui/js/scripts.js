@@ -47,6 +47,10 @@ var MAPPING = {
     dataKab: [],
     dataKec: [],
     dataKel: [],
+    posisi: {
+        "latitude": -6.2036776,
+        "longitude": 106.8214523
+    },
     isiSelect: function (el, $data)
     {
         //console.log("isi data=>" + JSON.stringify($data));
@@ -238,8 +242,26 @@ var MAPPING = {
                         });
             }
         });
+    },
+    getLokasi: function ()
+    {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position)
+            { // on success
+                MAPPING.posisi.latitude = position.coords.latitude;
+                MAPPING.posisi.longitude = position.coords.longitude;
+            }, function (error)
+            { // on error
+                console.log('code: ' + error.code + '\n' +
+                        'message: ' + error.message + '\n');
+            });
+        } else {
+            console.log("Geolocation is not supported.");
+        }
     }
-}
+};
+
+MAPPING.getLokasi();
 
 // *****************************************
 //                E V E N T

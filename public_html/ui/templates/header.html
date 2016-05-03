@@ -28,6 +28,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script src="{{ @BASE_URL .'ui/js/jquery.metisMenu.js' }}"></script>
     <script src="{{ @BASE_URL .'ui/js/jquery.slimscroll.min.js' }}"></script>
     <script src="{{ @BASE_URL .'ui/js/custom.js' }}"></script>
+    <repeat group="{{@headJS}}" value="{{ @url }}">
+        <script src="{{ @url }}" type="text/javascript"></script>
+    </repeat>
     <style>
         .nav-second-level li {
             padding-left: 20px;

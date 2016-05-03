@@ -11,6 +11,8 @@ class LaporanC extends Response_WS{
         $f3->set('loadCSS', [
             'custom'
         ]);
+        
+        $f3->set('headJS', []);
         $f3->set('loadJS', [
             'jquery.flot',
             'jquery.nicescroll',
@@ -42,6 +44,8 @@ class LaporanC extends Response_WS{
         $f3->set('loadCSS', [
             'custom'
         ]);
+        
+        $f3->set('headJS', []);
         $f3->set('loadJS', [
             'jquery.flot',
             'jquery.nicescroll',
