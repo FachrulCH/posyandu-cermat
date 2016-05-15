@@ -5,8 +5,9 @@ var POSYANDU = {
     },
     getData: function ()
     {
+        console.log('posyandu.getData');
         $.ajax({
-            url: BASE_URL + "api/posyandu/",
+            url: BASE_URL + "api/daftar/posyandu",
             beforeSend: function (xhr)
             {
                 console.log("pesan dikirim");
@@ -14,7 +15,8 @@ var POSYANDU = {
         })
                 .done(function (data)
                 {
-                    POSYANDU.list = data.response_data.kelurahan;
+                    console.log('balikan posyandu.getData');
+                    POSYANDU.list = data.response_data.data_posyandu;
                 })
                 .fail(function ()
                 {
@@ -27,36 +29,55 @@ var POSYANDU = {
     },
     loadMap: function ()
     {
-        var mapOptions = {
-            center: new google.maps.LatLng(MAPPING.posisi.latitude, MAPPING.posisi.longitude),
-            zoom: 14,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("peta-utama"), mapOptions);
 
-        //Create and open InfoWindow.
-        var infoWindow = new google.maps.InfoWindow();
+        console.log('Bikin peta');
+        console.log(POSYANDU.list);
 
         var jumlah_posyandu = POSYANDU.list.length;
-        for (var i = 0; i < jumlah_posyandu; i++) {
-            var data = POSYANDU.list[i];
-            var myLatlng = new google.maps.LatLng(data.koordinat.lat, data.koordinat.lng);
-            var marker = new google.maps.Marker({
-                position: myLatlng,
-                map: map,
-                title: data.title
-            });
+        if (jumlah_posyandu > 0) {
+            gambarPosyandu();
+        } else {
+            setTimeout(function () {
+                gambarPosyandu();
+            }, 10);
+        }
 
-            //Attach click event to the marker.
-            (function (marker, data)
-            {
-                google.maps.event.addListener(marker, "click", function (e)
-                {
-                    //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
-                    infoWindow.setContent("<div style = 'width:25em;min-height:40px'><b>" + data.nama + "</b><p>" + data.alamat + "</p></div>");
-                    infoWindow.open(map, marker);
+
+        function gambarPosyandu() {
+            console.log('gambar Posyandu untuk');
+            
+            var mapOptions = {
+                center: new google.maps.LatLng(MAPPING.posisi.latitude, MAPPING.posisi.longitude),
+                zoom: 14,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("peta-utama"), mapOptions);
+
+            //Create and open InfoWindow.
+            var infoWindow = new google.maps.InfoWindow();
+            var jumlah_posyandu = POSYANDU.list.length;
+            
+            for (var i = 0; i < jumlah_posyandu; i++) {
+                var data = POSYANDU.list[i];
+                console.log(data);
+                var myLatlng = new google.maps.LatLng(data.koordinat.lat, data.koordinat.lng);
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map,
+                    title: data.title
                 });
-            })(marker, data);
+
+                //Attach click event to the marker.
+                (function (marker, data)
+                {
+                    google.maps.event.addListener(marker, "click", function (e)
+                    {
+                        //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
+                        infoWindow.setContent("<div style = 'width:25em;min-height:40px'><b>" + data.nama + "</b><p>" + data.alamat + "</p></div>");
+                        infoWindow.open(map, marker);
+                    });
+                })(marker, data);
+            }
         }
     },
     construct: function ()

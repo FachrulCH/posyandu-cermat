@@ -1,0 +1,222 @@
+<div class="fch-isi">
+    <div class="fch-isi-nya">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Profil ibu <b class="nama-ibu"></b></h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3 col-lg-3 " align="center"><img alt="User Pic" src="{{@BASE_URL}}gambar/ibu-default.png" width="250" class="img-circle img-responsive" id="foto-ibu"></div>
+
+                    <div class=" col-md-9 col-lg-9 ">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>No KTP</td>
+                                    <td id="no-ktp"></td>
+                                </tr>
+                                <tr>
+                                    <td>Nama Ibu:</td>
+                                    <td class="nama-ibu"></td>
+                                </tr>
+                                <tr>
+                                    <td>Nama Panggilan:</td>
+                                    <td id="nama-panggilan"></td>
+                                </tr>
+                                <tr>
+                                    <td>Nama Suami:</td>
+                                    <td id="nama-suami"></td>
+                                </tr>
+                                <tr>
+                                    <td>Tanggal Lahir:</td>
+                                    <td id="ttl"></td>
+                                </tr>
+                                <tr>
+                                    <td>Tempat Lahir:</td>
+                                    <td id="tl"></td>
+                                </tr>
+                                <tr>
+                                    <td>Umur</td>
+                                    <td id="umur"></td>
+                                </tr>
+                                <tr>
+                                    <td>Alamat Tinggal</td>
+                                    <td id="alamat"></td>
+                                </tr>
+                                <tr>
+                                    <td>Provinsi</td>
+                                    <td id="prov"></td>
+                                </tr>
+                                <tr>
+                                    <td>Kota/Kab</td>
+                                    <td id="kota"></td>
+                                </tr>
+                                <tr>
+                                    <td>Kecamatan</td>
+                                    <td id="kec"></td>
+                                </tr>
+                                <tr>
+                                    <td>Kelurahan</td>
+                                    <td id="kel"></td>
+                                </tr>
+                                <tr>
+                                    <td>Posyandu Terdekat</td>
+                                    <td id="psy"></td>
+                                </tr>
+                                <tr>
+                                    <td>Status KB</td>
+                                    <td id="status-kb"></td>
+                                </tr>
+                                <tr>
+                                    <td>Jenis KB</td>
+                                    <td id="jenis-kb"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <hr/>
+                <button type="button" class="btn btn-success" id="btn-tambah">
+                    <span class="fa fa-plus-circle"></span> Tambah anak
+                </button>
+                <a href="{{@BASE_URL}}daftar/ibu#ubah" class="btn btn-warning" id="btn-ubah">
+                    <span class="fa fa-pencil"></span> Ubah Profile
+                </a>
+
+                <button type="button" class="btn btn-info" id="btn-hamil">
+                    <span class="fa fa-heart"></span> Ibu Hamil
+                </button>
+                <span class="pull-right">
+                    <button type="button" class="btn btn-danger" id="btn-hapus">
+                        <span class="fa fa-trash"></span> Hapus
+                    </button>
+                </span>
+                <br/><br/>
+
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Anak</div>
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Foto</th>
+                                    <th>Nama Anak</th>
+                                    <th>Jenis Kelamin</th>
+                                    <th>Tempat tanggal lahir</th>
+                                    <th>Umur</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><img alt="User Pic" src="{{@BASE_URL}}gambar/cowo-default.png" width="50" class="img-circle img-responsive"></td>
+                                    <td>Aselp</td>
+                                    <td>Laki</td>
+                                    <td>Jakarta, 11 Jan</td>
+                                    <td>3 tahun</td>
+                                    <td><span class="fam">Gizi Baik</span></td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <a href="#" title="" class="btn btn-default" data-toggle="dropdown" aria-expanded="false">
+                                                <i class="fa fa-cog"></i>
+                                                <i class="fa fa-chevron-down"></i>
+                                                <div class="ripple-wrapper"></div></a>
+                                            <ul class="dropdown-menu float-right">
+                                                <li><a href="#" title=""><i class="fa fa-pencil-square-o icon_9"></i>Ubah</a></li>
+                                                <li><a href="#" class="bg-danger" title=""><i class="fa fa-times" icon_9=""></i>Hapus</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><img alt="User Pic" src="{{@BASE_URL}}gambar/cewe-default.png" width="50" class="img-circle img-responsive"></td>
+                                    <td>Imas</td>
+                                    <td>Perempuan</td>
+                                    <td>Jakarta, 11 Jan</td>
+                                    <td>3 bulan</td>
+                                    <td><span class="ur">Gizi Buruk</span></td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <a href="#" title="" class="btn btn-default" data-toggle="dropdown" aria-expanded="false">
+                                                <i class="fa fa-cog"></i>
+                                                <i class="fa fa-chevron-down"></i>
+                                                <div class="ripple-wrapper"></div></a>
+                                            <ul class="dropdown-menu float-right">
+                                                <li><a href="#" title=""><i class="fa fa-pencil-square-o icon_9"></i>Ubah</a></li>
+                                                <li><a href="#" class="bg-danger" title=""><i class="fa fa-times" icon_9=""></i>Hapus</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdl-tambah-anak" tabindex="-1" role="dialog" aria-labelledby="mdl-tambah-anak" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h2 class="modal-title">Pendaftaran Anak</h2>
+            </div>
+            <div class="modal-body">
+                <form action="#" id="form-anak" method="post">
+                    <div class="form-group">
+                        <label for="kode_ibu">Kode</label>
+                        <input type="text" class="form-control" id="kode_anak"
+                               placeholder="Kode akan di generate sisitem" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="nama">Nama</label>
+                        <input type="text" class="form-control" id="nama" placeholder="Nama anak"
+                               required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="namaPanggilan">Nama Panggilan</label>
+                        <input type="text" class="form-control" id="namaSuami" placeholder="Nama panggilan" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="ttl">Tanggal Lahir</label>
+                        <input type="date" class="form-control" id="ttl" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="jk">Jenis Kelamin</label>
+                        <div class="radio">
+                            <label><input type="radio" name="jk" id="jk" value="1" required="required">Laki-laki</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="jk" id="jk" value="0" required="required">Perempuan</label>
+                        </div>
+                    </div>
+                    <div class="form-inline form-group" style="width: 200px">
+                        <div class="input-group">
+                            <div class="input-group-addon">Anak Ke-</div>
+                            <input type="number" class="form-control" id="urutan" required="required" min="1" max="9">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="foto">Foto</label>
+                        <input type="file" id="foto-upload">
+                        <p class="help-block">Pilih foto anak jika ada</p>
+                    </div>
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Mohon tunggu" id="btn-submit">Submit
+                    </button>
+                </form>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>

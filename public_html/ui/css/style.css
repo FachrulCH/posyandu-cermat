@@ -2151,7 +2151,7 @@ tr.table-row {
     text-align: center;
 }
 .copy{
-/*    background:#fff;*/
+    /*    background:#fff;*/
     text-align:center;
     padding:1.5em 0;
 }
@@ -2910,4 +2910,14 @@ tr.table-row {
 
 .vertical-center {
     vertical-align: middle !important;
+}
+
+table.dataTable tbody tr.selected {
+    /*buat selected element datatable*/
+    background-color: rgb(164, 236, 164);
+}
+
+.pac-container {
+    /*buat autocomplete locationpicker*/
+    z-index: 2000 !important;
 }

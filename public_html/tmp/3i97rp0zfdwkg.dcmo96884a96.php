@@ -1,3 +1,11 @@
+<div class="content-top">
+    <div class="col-md-12">
+        <div id="peta-utama" style="height: 15em">
+
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
 <div class="fch-isi">
     <div class="fch-isi-nya">
         <div class="col-md-5">
