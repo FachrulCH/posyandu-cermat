@@ -2921,3 +2921,23 @@ table.dataTable tbody tr.selected {
     /*buat autocomplete locationpicker*/
     z-index: 2000 !important;
 }
+
+.content-anak{
+    background-color: #fff;
+    border: 1px solid #ebeff6;
+    padding: 1.5em 2em;
+}
+
+.content-anak h5{
+    font-size: 1.2em;
+    color: #B3AEAE;
+    font-family: 'Muli-Regular';
+}
+.content-anak label{
+    font-size: 1.5em;
+    color: #000;
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}

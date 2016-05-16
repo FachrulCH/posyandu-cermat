@@ -1,91 +1,254 @@
 <div class="blank">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-        <div class="panel panel-success">
-            <div class="panel-heading">
-                <h3 class="panel-title">Neneng Geulis</h3>
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-3 col-lg-3 " align="center"><img alt="User Pic" src="{{@BASE_URL}}gambar/cewe-default.png" width="250" class="img-circle img-responsive" id="foto-anak"></div>
-                    <div class=" col-md-9 col-lg-9 ">
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <td>Nama Panggilan:</td>
-                                    <td>Neneng</td>
-                                </tr>
-                                <tr>
-                                    <td>Nama Ibu:</td>
-                                    <td>Ceu Popong</td>
-                                </tr>
-                                <tr>
-                                    <td>Tanggal Lahir:</td>
-                                    <td>06/23/2013</td>
-                                </tr>
-                                <tr>
-                                    <td>Umur</td>
-                                    <td>2 tahun, 10 Bulan</td>
-                                </tr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Neneng Geulis</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 " align="center"><img alt="User Pic" src="{{@BASE_URL}}gambar/cewe-default.png" width="250" class="img-circle img-responsive" id="foto-anak"></div>
+                        <div class=" col-md-9 col-lg-9 ">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td>No KMS:</td>
+                                        <td>12121343</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nama Lengkap:</td>
+                                        <td>Neneng</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nama Ibu:</td>
+                                        <td>Ceu Popong</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tanggal Lahir:</td>
+                                        <td>06/23/2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Umur</td>
+                                        <td>2 tahun, 10 Bulan</td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Jenis Kelamin</td>
-                                    <td>Wanita</td>
-                                </tr>
-                                <tr>
-                                    <td>Alamat Tinggal</td>
-                                    <td>Gang Haji suleman</td>
-                                </tr>
-                                <tr>
-                                    <td>Berat Badan</td>
-                                    <td>15 Kg</td>
-                                </tr>
-                                <tr>
-                                    <td>Tinggi Badan</td>
-                                    <td>102 Cm</td>
-                                </tr>
-
-                            </tbody>
-                        </table>
+                                    <tr>
+                                        <td>Jenis Kelamin</td>
+                                        <td>Wanita</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alamat Tinggal</td>
+                                        <td>Gang Haji suleman</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
+                <div class="panel-footer">
+                    <button class="btn btn-sm btn-primary" id="btn-timbangan"><i class="fa fa-dashboard"></i> Timbangan</button>
+                    <button class="btn btn-sm btn-info" id="btn-imunisasi"><i class="fa fa-eyedropper"></i> Imunisasi</button>
+                    <button class="btn btn-sm btn-warning" id="btn-catatan"><i class="fa fa-clipboard"></i> Catatan</button>
+                    <!--                <span class="pull-right">
+                                        <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button"
+                                           class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                                        <a data-original-title="Remove this user" data-toggle="tooltip" type="button"
+                                           class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                                    </span>-->
+                </div>
             </div>
-            <div class="panel-footer">
-                <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button"
-                   class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-                <span class="pull-right">
-                    <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button"
-                       class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-                    <a data-original-title="Remove this user" data-toggle="tooltip" type="button"
-                       class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-                </span>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="content-anak">
+                        <h5>Berat badan terakhir</h5>
+                        <label>8 Kg</label>
+                        <div style="font-size: .7em; color: #B3AEAE"><i>(1 bulan lalu)</i></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="content-anak">
+                        <h5>Tinggi badan terakhir</h5>
+                        <label>90 Cm</label>
+                        <div style="font-size: .7em; color: #B3AEAE"><i>(1 bulan lalu)</i></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
             </div>
+            <hr/>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Catatan terakhir</h3>
+                </div>
+                <div class="panel-body" style="min-height: 170px">
 
+                </div>
+            </div>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-        <div class="panel panel-warning">
-            <div class="panel-heading">
-                <h3 class="panel-title">Status Gizi</h3>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-8">
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Status Gizi</h3>
+                </div>
+                <div class="panel-body" style="height: 450px; text-align: center">
+                    <!--<div class="top-content">-->
+                    <!--<h5>Lansia</h5>-->
+                    <!--<label>6295</label>-->
+                    <!--</div>-->
+                    <iframe src="http://localhost/PRJ/posyandu/lib/growthchart-master/coba.html" width="100%" height="100%"></iframe>
+                </div>
             </div>
-            <div class="panel-body" style="height: 450px; text-align: center">
-                <!--<div class="top-content">-->
-                <!--<h5>Lansia</h5>-->
-                <!--<label>6295</label>-->
-                <!--</div>-->
-                <iframe src="http://localhost/PRJ/posyandu/lib/growthchart-master/coba.html" width="100%" height="100%"></iframe>
-                <a href="../lib/growthchart-master/coba.html" class="btn btn-danger">Lihat detail</a>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Daftar Imunisasi</h3>
+                </div>
+                <div class="panel-body" style="height: 450px; text-align: center">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="active">
+                                <th>Imunisasi</th><th>Tanggal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Hepatitis B</td><td>01-Jan-15</td>
+                            </tr>
+                            <tr>
+                                <td>Polio</td><td>01-Feb-15</td>
+                            </tr>
+                            <tr>
+                                <td>Campak</td><td>(Belum)</td>
+                            </tr>
+                            <tr>
+                                <td>Hepatitis A</td><td>(Belum)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="panel-footer">
-                <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button"
-                   class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-                <span class="pull-right">
-                    <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button"
-                       class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-                    <a data-original-title="Remove this user" data-toggle="tooltip" type="button"
-                       class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-                </span>
-            </div>
+        </div>
+    </div>
+</div>
 
+<div class="modal fade" id="mdl-tambah-timbangan" tabindex="-1" role="dialog" aria-labelledby="mdl-tambah-timbangan" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h2 class="modal-title">Timbangan</h2>
+            </div>
+            <div class="modal-body">
+                <form action="#" id="form-timbangan" method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="tgl" class="col-sm-2 control-label">Tanggal</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control input-tgl-skrg" required="required">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="berat" class="col-sm-2 control-label">Berat badan</label>
+                        <div class="col-sm-5">
+                            <input type="number" class="form-control" id="berat" min="1">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tinggi" class="col-sm-2 control-label">Tinggi</label>
+                        <div class="col-sm-5">
+                            <input type="number" class="form-control" id="tinggi" min="1">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Mohon tunggu" id="btn-submit">Submit</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdl-imunisasi" tabindex="-1" role="dialog" aria-labelledby="mdl-imunisasi" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h2 class="modal-title">Imunisasi</h2>
+            </div>
+            <div class="modal-body">
+                <form action="#" id="form-timbangan" method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="tgl" class="col-sm-2 control-label">Tanggal</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control input-tgl-skrg" required="required">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="berat" class="col-sm-2 control-label">Jenis imunisasi</label>
+                        <div class="col-sm-5">
+                            <select class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Mohon tunggu" id="btn-submit">Submit</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdl-catatan" tabindex="-1" role="dialog" aria-labelledby="mdl-catatan" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h2 class="modal-title">Catatan kesehatan</h2>
+            </div>
+            <div class="modal-body">
+                <form action="#" id="form-timbangan" method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="tgl" class="col-sm-2 control-label">Tanggal</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control input-tgl-skrg" required="required">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="berat" class="col-sm-2 control-label">Jenis imunisasi</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Mohon tunggu" id="btn-submit">Submit</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
