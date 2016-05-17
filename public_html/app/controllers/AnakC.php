@@ -16,7 +16,8 @@ class AnakC extends Response_WS
         $f3->set('breadcumb', ["Pendaftaran" => $f3->get('SESSION.LastPageURL'), "Daftar Anak" => $f3->get('SESSION.LastPageURL')]);
         $f3->set('loadCSS', [
             'custom',
-            'dataTables.bootstrap.min'
+            'dataTables.bootstrap.min',
+            'bootstrap-select.min'
         ]);
         
         $f3->set('headJS', []);
@@ -26,6 +27,7 @@ class AnakC extends Response_WS
             'localforage.min',
             'scripts',
             'datatables.min',
+            'bootstrap-select.min'
         ]);
         $f3->set('customJS', []);
         $f3->set('vendorJS', []);
@@ -49,10 +51,8 @@ class AnakC extends Response_WS
             'jquery.nicescroll',
             'localforage.min',
             'scripts',
-            'datatables.min',
+            'datatables.min'
         ]);
-        $f3->set('customJS', []);
-        $f3->set('vendorJS', []);
         $f3->set('pageJS', ['profile-anak']);
         
         $f3->set('content', 'pg-profile-anak.html');
@@ -65,14 +65,17 @@ class AnakC extends Response_WS
         $data = [
             [
                 "kode"  => '222',
-                "foto"  => 'cowo-default.png',
+                "foto"  => 'anak3.png',
                 "nama"  => 'Nama anak',
                 "alias" => 'Nama Panggilan',
+                "ibu"   => '1',
+                "ibu_nama"   => 'Juminten',
                 "jk"    => '1',
                 "lahir" => 'Bekasi',
                 "ttl"   => '01-Jan-2016',
-                "noKK"  => 12121344,
-                "posyandu"  => 'Bintang'
+                "noKK"  => '12121344',
+                "posyandu"  => 'Bintang',
+                "urutan" => '3'
             ]
         ];
         
