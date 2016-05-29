@@ -23,29 +23,18 @@
         <div class="col-md-12 ">
             <table id="table-posyandu" class="table table-bordered table-striped">
                 <thead>
-                    <tr>
+                    <tr class="success">
+                        <th style="width: 70px; text-align: center">Foto</th>
                         <th>Kode</th>
+                        <th>No KK</th>
                         <th>No KTP</th>
                         <th>Nama Ibu</th>
                         <th>Nama Suami</th>
                         <th style="width: 250px">Alamat</th>
-                        <th style="width: 100px; text-align: center">Foto</th>
                         <th>Kelurahan</th>
                         <th>Kode Posyandu</th>
                     </tr>
                 </thead>
-                <!--                <tfoot>
-                                    <tr>
-                                        <th>Kode</th>
-                                        <th>No KTP</th>
-                                        <th>Nama Ibu</th>
-                                        <th>Nama Suami</th>
-                                        <th>Alamat</th>
-                                        <th style="width: 100px">Foto</th>
-                                        <th>Kelurahan</th>
-                                        <th>Kode Posyandu</th>
-                                    </tr>
-                                </tfoot>-->
             </table>
         </div>
     </div>
@@ -72,14 +61,26 @@
                         <input type="text" class="form-control" id="no_ktp" placeholder="No KTP ibu">
                     </div>
                     <div class="form-group">
-                        <label for="nama">Nama Ibu</label>
+                        <label for="no_ktp">No Kartu Keluarga</label>
+                        <input type="text" class="form-control" id="no_kk" placeholder="No KK">
+                    </div>
+                    <div class="form-group">
+                        <label for="nama">Nama</label>
                         <input type="text" class="form-control" id="nama" placeholder="Nama Posyandu"
                                required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="namaPanggilan">Nama Panggilan</label>
+                        <input type="text" class="form-control" id="namaPanggilan" placeholder="Nama Posyandu" required="required">
                     </div>
                     <div class="form-group">
                         <label for="namaSuami">Nama Suami</label>
                         <input type="text" class="form-control" id="namaSuami" placeholder="Nama Suami"
                                required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="tl">Tempat Lahir</label>
+                        <input type="text" class="form-control" id="tl" required="required">
                     </div>
                     <div class="form-group">
                         <label for="ttl">Tanggal Lahir</label>
@@ -159,7 +160,7 @@
                     </div>
 
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-success" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Mohon tunggu" id="btn-submit">Submit
+                    <button type="button" class="btn btn-success" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Mohon tunggu" id="btn-submit">Submit
                     </button>
                 </form>
             </div>

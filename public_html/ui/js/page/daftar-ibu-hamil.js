@@ -16,7 +16,12 @@ IBU = {
                 {data: 'kk'},
                 {data: 'ktp'},
                 {data: 'nama'},
-                {data: 'nama_suami'},
+                {
+                    data: 'usia_hamil', render: function (usia_hamil) {
+                        return usia_hamil + ' minggu';
+                    }
+                },
+                {data: 'anakke'},
                 {data: 'alamat'},
                 {data: 'kel'},
                 {data: 'posyandu'}
@@ -42,14 +47,14 @@ IBU = {
         } else {
             $('#kode_ibu').val(data.kode);
             $('#nama').val(data.nama);
-            $('#namaSuami').val(data.nama_suami);
+            $('#namaSuami').val(data.namaSuami);
             $('#ttl').val(data.ttl);
             $('#prov').val(data.prov);
             $('#kot').val(data.kota);
             $('#kec').val(data.kec);
             $('#kel').val(data.kel);
             $('#posyanduIbu').val(data.posyandu);
-            $('#kb').val(data.status_kb);
+            $('#kb').val(data.statusKB);
             $('#jenisKb').val(data.jenisKb);
             $('#alamat').val(data.alamat);
             $('#no_ktp').val(data.ktp);
@@ -61,44 +66,32 @@ IBU = {
     },
     tambah: function () {
         var ibuBaru = {
-            foto: "in.jpg",
             kode: null,
-            kk: $('#no_kk').val(),
-            ktp: $('#no_ktp').val(),
             nama: $('#nama').val(),
-            nama_panggilan: $('#namaPanggilan').val(),
-            nama_suami: $('#namaSuami').val(),
-            tl: $('#tl').val(),
+            namaSuami: $('#namaSuami').val(),
             ttl: $('#ttl').val(),
             prov: $('#prov').val(),
             kota: $('#kot').val(),
             kec: $('#kec').val(),
             kel: $('#kel').val(),
             posyandu: $('#posyanduIbu').val(),
-            status_kb: $('#kb').val(),
-            jenis_kb: $('#jenisKb').val(),
-            alamat: $('#alamat').val()
+            statusKB: $('#kb').val(),
+            jenisKb: $('#jenisKb').val(),
+            alamat: $('#alamat').val(),
+            foto: "in.jpg",
+            ktp: $('#no_ktp').val()
         };
-
         $('#mdl-tambah').modal('hide');
 
-        WS.data = ibuBaru;
-        WS.post('daftar/ibu', function () {
-            console.log("selesai coy");
-            ibuBaru.kode = WS.result.response_data.ibu_saved;
-            if (IBU.aksi === 'tambah') {
-                // proses tambah ibu baru
-                table.row.add(ibuBaru).draw(false);
-            } else if (IBU.aksi === 'ubah') {
-                // proses update ibu baru
-                table.row(IBU.pilihan).data(ibuBaru).draw();
-            }
-
-            // sorting yg id paling baru di atas
-            table.order([1, 'desc']).draw();
-            
-            alert("Berhasil tersimpan");
-        });
+        if (IBU.aksi === 'tambah') {
+            // proses tambah ibu baru
+            // WS
+            table.row.add(ibuBaru).draw(false);
+        } else if (IBU.aksi === 'ubah') {
+            // proses update ibu baru
+            // WS
+            table.row(IBU.pilihan).data(ibuBaru).draw();
+        }
     },
     hapus: function () {
         // WS
@@ -115,7 +108,7 @@ IBU = {
 
 
 $(document).ready(function () {
-    $.getJSON(BASE_URL + 'api/daftar/ibu', function (result) {
+    $.getJSON(BASE_URL + 'api/daftar/bumil', function (result) {
         //console.log(result.response_data);
         IBU.data = result.response_data.data_ibu;
         IBU.inisiasi();
@@ -128,7 +121,7 @@ $(document).ready(function () {
 
     $('#btn-tambah').on('click', function () {
         IBU.aksi = 'tambah';
-        IBU.form([]);
+        IBU.form({});
     });
 
     $(document).on('click', '#btn-ubah', function () {

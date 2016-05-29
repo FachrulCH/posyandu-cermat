@@ -1,3 +1,41 @@
+WS = {
+    "url": BASE_URL + "api/",
+    "result": [],
+    "data": {},
+    "post": function (api, callback) {
+        $.ajax({
+            url: this.url + api,
+            method: 'POST',
+            dataType: 'JSON',
+            data: this.data,
+            beforeSend: function (xhr)
+            {
+                console.log("ws before send");
+            }
+        })
+                .done(function (data)
+                {
+                    WS.result = data;
+                    
+                    if (callback && typeof (callback) === "function") {
+                        callback();
+                    }
+                })
+                .fail(function (jqXHR, textStatus, errorThrown)
+                {
+                    alert("Terdapat kesalahan koneksi ke server");
+                    console.log(jqXHR);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                })
+                .always(function (jqXHR, textStatus)
+                {
+                    console.log("selesai ws");
+                });
+    }
+};
+
+
 (function ()
 {
     "use strict";
@@ -43,6 +81,15 @@ localforage.config({
 
 
 var MAPPING = {
+    selected: {
+        prov: '',
+        kota: '',
+        kec: '',
+        kel: '',
+        psy: '',
+        periode: ''
+
+    },
     dataProvinsi: [],
     dataKab: [],
     dataKec: [],
@@ -121,6 +168,7 @@ var MAPPING = {
     },
     getKab: function ($id)
     {
+        this.selected.prov = $id;
         id_kab = 'kab' + $id;
         localforage.getItem(id_kab, function (err, value)
         {
@@ -245,19 +293,19 @@ var MAPPING = {
     },
     getLokasi: function ()
     {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position)
-            { // on success
-                MAPPING.posisi.latitude = position.coords.latitude;
-                MAPPING.posisi.longitude = position.coords.longitude;
-            }, function (error)
-            { // on error
-                console.log('code: ' + error.code + '\n' +
-                        'message: ' + error.message + '\n');
-            });
-        } else {
-            console.log("Geolocation is not supported.");
-        }
+//        if (navigator.geolocation) {
+//            navigator.geolocation.getCurrentPosition(function (position)
+//            { // on success
+//                MAPPING.posisi.latitude = position.coords.latitude;
+//                MAPPING.posisi.longitude = position.coords.longitude;
+//            }, function (error)
+//            { // on error
+//                console.log('code: ' + error.code + '\n' +
+//                        'message: ' + error.message + '\n');
+//            });
+//        } else {
+//            console.log("Geolocation is not supported.");
+//        }
     }
 };
 

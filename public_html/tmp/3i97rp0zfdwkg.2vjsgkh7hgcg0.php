@@ -112,7 +112,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo $BASE_URL; ?>daftar/ibu" class=" hvr-bounce-to-right"> 
+                                <a href="<?php echo $BASE_URL; ?>daftar/bumil" class=" hvr-bounce-to-right"> 
                                     <i class="fa fa-heart nav_icon"></i>Daftar Ibu hamil
                                 </a>
                             </li>
@@ -126,9 +126,9 @@
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-medkit nav_icon"></i> <span class="nav-label">Layanan Posyandu</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="#" class=" hvr-bounce-to-right"> <i class="fa fa-dashboard nav_icon"></i>Pemeriksaan Anak</a></li>
+                            <li><a href="<?php echo $BASE_URL; ?>periksa/anak" class=" hvr-bounce-to-right"> <i class="fa fa-dashboard nav_icon"></i>Pemeriksaan Anak</a></li>
                             <li><a href="#" class=" hvr-bounce-to-right"> <i class="fa fa-eyedropper nav_icon"></i>Imunisasi</a></li>
-                            <li><a href="#" class=" hvr-bounce-to-right"> <i class="fa fa-bullhorn nav_icon"></i>Penyuluhan</a></li>
+                            <li><a href="<?php echo $BASE_URL; ?>layanan/penyuluhan" class=" hvr-bounce-to-right"> <i class="fa fa-bullhorn nav_icon"></i>Penyuluhan</a></li>
                             <li><a href="#" class=" hvr-bounce-to-right"> <i class="fa fa-info nav_icon"></i>Konsultasi ibu hamil</a></li>
 <!--                            <li><a href="#" class=" hvr-bounce-to-right"><i class="fa fa-group nav_icon"></i>Keluarga berencana</a></li>-->
                         </ul>
@@ -164,9 +164,11 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li><a href="<?php echo $BASE_URL; ?>daftar/posyandu" class=" hvr-bounce-to-right"> <i class="fa fa-hospital-o nav_icon"></i>Daftar Posyandu</a></li>
+                            <li><a href="<?php echo $BASE_URL; ?>kelola/kegiatan" class=" hvr-bounce-to-right"> <i class="fa fa-calendar-o nav_icon"></i>Acara Kegiatan</a></li>
+                            <li><a href="<?php echo $BASE_URL; ?>kelola/penyuluhan" class=" hvr-bounce-to-right"> <i class="fa fa-bullhorn nav_icon"></i>Berita Penyuluhan</a></li>
                             <li><a href="#" class=" hvr-bounce-to-right"> <i class="fa fa-users nav_icon"></i>Daftar Kader</a></li>
                             <li><a href="<?php echo $BASE_URL; ?>kelola/imunvit" class=" hvr-bounce-to-right"> <i class="fa fa-eyedropper nav_icon"></i>Imunisasi & Vitamin</a></li>
-                            <li><a href="<?php echo $BASE_URL; ?>kelola/penyuluhan" class=" hvr-bounce-to-right"> <i class="fa fa-calendar nav_icon"></i>Penyuluhan</a></li>
+                            
                         </ul>
                     </li>
                 </ul>

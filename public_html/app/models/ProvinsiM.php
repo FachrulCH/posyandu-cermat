@@ -1,13 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kurawall
- * Date: 17/04/16
- * Time: 10:42
- */
-
 namespace models;
-
 
 class ProvinsiM extends \DB\SQL\Mapper
 {
