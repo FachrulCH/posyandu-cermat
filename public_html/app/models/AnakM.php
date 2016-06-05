@@ -136,6 +136,8 @@ class AnakM extends \DB\SQL\Mapper {
 
     public function get_profile_anak($id) {
         $this->ibu_nama = "SELECT nama FROM tb_ibu WHERE tb_ibu.id = tb_anak.ibu_id";
+        $this->ibu_alamat = "SELECT alamat FROM tb_ibu WHERE tb_ibu.id = tb_anak.ibu_id";
+        $this->posyandu_nama = "SELECT nama FROM tb_posyandu WHERE tb_posyandu.id = tb_anak.posyandu_id";
         $this->load(array('id=:pid', ':pid' => $id));
         $data = $this->cast();
         if ($data['jk'] == 0) {
