@@ -56,7 +56,7 @@ ANAK = {
         if (data.length === 0) {
             $('#form-anak')[0].reset();
         } else {
-            $('#kode_anak').val(data.kode);
+            $('#kode_anak').val(data.id);
             $('#nama').val(data.nama);
             $('#alias').val(data.alias);
             $('#ttl').val(data.ttl);
@@ -94,7 +94,7 @@ $(document).ready(function () {
 
     $(document).on('click', '#btn-detail', function () {
         //$('#mdl-detail').modal('show');
-        var url = BASE_URL + 'profile/anak/' + ANAK.pilihan.kode;
+        var url = BASE_URL + 'profile/anak/' + ANAK.pilihan.id;
         window.open(url, '_blank');
     });
 

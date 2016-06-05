@@ -88,5 +88,13 @@ class Debug {
         $data =$ibu->getPosyandu('IBU1605');
         print_r($data);
     }
+    
+    function riwayatanak($f3){
+        echo "<pre>";
+        $anak = new \models\AnakM();
+        $data = $anak->get_riwayat_pemeriksaan('ANK1607','PSY1605');
+        print_r($data);
+        //echo count($data);
+    }
 
 }

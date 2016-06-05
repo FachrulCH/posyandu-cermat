@@ -35,14 +35,16 @@ class AnakC extends Response_WS
         $f3->set('pageJS', ['daftar-anak']);
         
         $ibu = new \models\IbuM();
-        $f3->set('list_ibu', $ibu->get_by_kel(1101012001));
+        $f3->set('list_ibu', $ibu->get_by_kel($f3->get('SESSION.kel_id')));
         
         $f3->set('content', 'pg-daftar-anak.html');
         echo \Template::instance()->render('templates/layout.html');
     }
     
-    function getProfile($id){
+    function getProfile($id, $param){
         $f3 = \Base::instance();
+        $id = $param['id'];
+        
         $f3->set('breadcumb', ["Profile" => $f3->get('BASE_URL').'daftar/anak', "Anak" => $f3->get('SESSION.LastPageURL')]);
         $f3->set('loadCSS', [
             'custom',
@@ -55,9 +57,24 @@ class AnakC extends Response_WS
             'jquery.nicescroll',
             'localforage.min',
             'scripts',
-            'datatables.min'
+            'datatables.min',
+            'moment-2.2.1'
         ]);
         $f3->set('pageJS', ['profile-anak']);
+        
+        $anak = new \models\AnakM();
+        $data_anak = $anak->get_profile_anak($id);
+        $riwayat = $anak->get_riwayat_pemeriksaan($data_anak['id'],$data_anak['posyandu_id']);
+        $data_terakhir = [];
+        foreach ($riwayat as $da) {
+            if (!empty($da['tanggal'])){
+                $data_terakhir = $da;
+            }
+        }
+        
+        $f3->set('data_anak', $data_anak);
+        $f3->set('data_terakhir', $data_terakhir);
+        $f3->set('riwayat_periksa', $riwayat);
         
         $f3->set('content', 'pg-profile-anak.html');
         echo \Template::instance()->render('templates/layout.html');

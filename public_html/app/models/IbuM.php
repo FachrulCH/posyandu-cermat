@@ -86,7 +86,12 @@ class IbuM extends \DB\SQL\Mapper {
         $this->kab_name = "SELECT nama_kab FROM tb_kabupaten WHERE tb_kabupaten.id_kab = tb_ibu.kab_id";
         $this->kec_name = "SELECT nama_kec FROM tb_kecamatan WHERE tb_kecamatan.id_kec = tb_ibu.kec_id";
         $this->posyandu_name = "SELECT nama FROM tb_posyandu WHERE tb_posyandu.id = tb_ibu.posyandu_id";
+        
+        if ($id_kelurahan != '*'){
         $data = $this->find(array('kel_id=:pid', ':pid' => $id_kelurahan), array('order' => 'nama'));
+        }else{
+            $data = $this->find();
+        }
         $listIbu = [];
         //echo "<pre>";
         foreach ($data as $ibu) {

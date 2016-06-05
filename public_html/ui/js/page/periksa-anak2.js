@@ -1,7 +1,14 @@
 PERIKSA = {
     pilihan: {},
     data: {},
+    inisiatekah: false,
     inisiasi: function () {
+        if (PERIKSA.inisiatekah === true){
+            $('.hasilFilter').hide();
+            table.destroy();
+            $("#table-periksa tbody").empty();
+        }
+        
         table = $("#table-periksa").DataTable({
             data: this.data,
             columns: [
@@ -65,6 +72,8 @@ PERIKSA = {
 //                $('#row-selected').fadeIn('slow');
 //            }
         });
+        
+        PERIKSA.inisiatekah = true;
     },
     form: function () {
         console.log("form periksa");

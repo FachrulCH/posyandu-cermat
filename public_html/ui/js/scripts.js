@@ -374,3 +374,18 @@ function hitungUsia(ttl){
       return m + 'bln';
     }
   }
+
+function hitungJarakUsia(ttl1,ttl2){
+    ttl2 = ttl2.substring(0, 10);
+    months = moment(ttl1, 'YYYY-MM-DD').diff(moment(ttl2, 'YYYY-MM-DD'), 'months');
+    var y = Math.floor(months / 12);
+    var m = months - (y * 12);
+    m = m.toFixed(1);
+
+    if (y > 0) {
+      //return y + 'y, ' + m + 'm';
+	  return y + 'th, ' + m + 'bln';
+    } else {
+      return m + 'bln';
+    }
+  }
