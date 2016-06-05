@@ -1,4 +1,4 @@
 <?php
 
-header("Location: http://fachrul.net/posyandu/public_html/login.html");
+header("Location: http://localhost/PRJ/posyandu/public_html/login.html");
 die();

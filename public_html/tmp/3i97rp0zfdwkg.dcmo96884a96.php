@@ -32,9 +32,10 @@
                         <th>Kode</th>
                         <th style="width: 150px">Nama Posyandu</th>
                         <th>Alamat</th>
-                        <th style="width: 42px">Peta</th>
-                        <th style="width: 100px">Jumlah Kader</th>
-                        <th>Status</th>
+                        <th>Kelurahan</th>
+                        <th>Kecamatan</th>
+                        <th>Kota</th>
+                        <th>Provinsi</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -42,9 +43,10 @@
                         <th>Kode</th>
                         <th style="width: 150px">Nama Posyandu</th>
                         <th>Alamat</th>
-                        <th style="width: 42px">Peta</th>
-                        <th style="width: 100px">Jumlah Kader</th>
-                        <th>Status</th>
+                        <th>Kelurahan</th>
+                        <th>Kecamatan</th>
+                        <th>Kota</th>
+                        <th>Provinsi</th>
                     </tr>
                 </tfoot>
             </table>
@@ -62,31 +64,15 @@
                 <h2 class="modal-title">Tambah Posyandu baru</h2>
             </div>
             <div class="modal-body">
-                <form action="#" id="form-posyandu" method="post">
+                <form action="<?php echo $BASE_URL; ?>posyandu/simpan" id="form-posyandu" method="post">
                     <div class="form-group">
                         <label for="id_posyandu">ID Posyandu</label>
-                        <input type="text" class="form-control" id="id_posyandu"
-                               placeholder="ID Posyandu akan di generate sisitem" disabled>
+                        <input type="text" class="form-control" id="id_posyandu" name="posyandu_id" placeholder="ID Posyandu akan di generate sisitem" disabled>
                     </div>
                     <div class="form-group">
                         <label for="nama">Nama Posyandu</label>
-                        <input type="text" class="form-control" id="nama" placeholder="Nama Posyandu"
+                        <input type="text" class="form-control" id="nama" name="posyandu-name" placeholder="Nama Posyandu"
                                required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="aktif">Status Posyandu</label>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="aktif" id="aktif" value="A" required="required">
-                                Aktif
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="aktif" id="tdk-aktif" value="B">
-                                Tidak aktif
-                            </label>
-                        </div>
                     </div>
                     <div class="form-group">
                         <label for="prov">Provinsi</label>
@@ -113,18 +99,22 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="nama">RT/RW</label>
+                        <input type="text" class="form-control" id="rtrw" placeholder="RT/RW" name="rtrw">
+                    </div>
+                    <div class="form-group">
                         <label for="alamat">Alamat Posyandu</label>
-                        <input type="text" class="form-control" id="alamat" placeholder="Masukan alamat"
-                               required="required">
+                        <input type="text" class="form-control" id="alamat" placeholder="Masukan alamat" name="alamat" required="required">
                     </div>
                     <div class="form-group">
                         <label for="peta">Peta Posyandu</label>
                         <div style="height: 400px;" id="peta"></div>
                     </div>
+                    <input type="hidden" name="lat" id="hid-lat">
+                    <input type="hidden" name="lng" id="hid-lng">
+                    <button type="button" class="btn btn-succes" id="btn-submit">Submit                    </button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-succes"
-                            data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Mohon tunggu" id="btn-submit">Submit
-                    </button>
+
                 </form>
             </div>
             <div class="modal-footer">
@@ -133,3 +123,6 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+</script>

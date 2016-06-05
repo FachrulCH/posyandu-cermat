@@ -12,38 +12,118 @@ class IbuM extends \DB\SQL\Mapper {
 
     function baru($data) {
         $this->reset();
+        if (empty($data['id'])){
+            $sq = new \models\SequencesM();
+            $id = $sq->get_ibu();
+            $this->id = $id;
+        }else{
+            $id = $data['id'];
+            $this->load(array('id=:pid', ':pid' => $id));
+        }
 
-        $this->no_ktp = $data['ktp'];
-        $this->no_kk = $data['kk'];
+        $this->no_ktp = $data['no_ktp'];
+        $this->no_kk = $data['no_kk'];
         $this->nama = $data['nama'];
-        $this->alias = $data['nama_panggilan'];
+        $this->alias = $data['alias'];
         $this->nama_suami = $data['nama_suami'];
         $this->tgl_lahir = $data['ttl'];
         $this->tempat_lahir = $data['tl'];
-        $this->foto = $data[''];
+        $this->foto = 'ibu-default.png';
         $this->prov_id = $data['prov'];
-        $this->kota_id = $data['kota'];
+        $this->kab_id = $data['kab'];
         $this->kec_id = $data['kec'];
+        $this->kel_id = $data['kel'];
         $this->alamat = $data['alamat'];
-        $this->posyandu_id = $data['posyandu'];
-        $this->status_kb = $data['status_kb'];
+        $this->posyandu_id = $data['posyandu_ibu'];
+        $this->status_kb = $data['kb'];
         $this->jenis_kb = $data['jenis_kb'];
 
         $this->save();
-        
-        return $this->kode;
     }
 
     function get_all() {
-//        $data = $this->find();
-//        $provinsi = [];
-//        //echo "<pre>";
-//        foreach ($data as $p){
-//            array_push($provinsi, ["id_prov"=>$p->id_prov,"nama_prov"=>$p->nama_prov]);
-//        }
-////        print_r($provinsi);
-////        die();
-//        return $provinsi;
+        $this->prov_name = "SELECT nama_prov FROM tb_provinsi WHERE tb_provinsi.id_prov = tb_ibu.prov_id";
+        $this->kab_name = "SELECT nama_kab FROM tb_kabupaten WHERE tb_kabupaten.id_kab = tb_ibu.kab_id";
+        $this->kec_name = "SELECT nama_kec FROM tb_kecamatan WHERE tb_kecamatan.id_kec = tb_ibu.kec_id";
+        $this->posyandu_name = "SELECT nama FROM tb_posyandu WHERE tb_posyandu.id = tb_ibu.posyandu_id";
+        $data = $this->find();
+        $listIbu = [];
+        //echo "<pre>";
+        foreach ($data as $ibu) {
+            array_push($listIbu, [
+                "kode" => $ibu->id,
+                "nama" => $ibu->nama,
+                "alias" => $ibu->alias,
+                "nama_suami" => $ibu->nama_suami,
+                "ttl" => $ibu->tgl_lahir,
+                "tl" => $ibu->tempat_lahir,
+                "prov_id" => $ibu->prov_id,
+                "prov_name" => $ibu->prov_name,
+                "kab_id" => $ibu->kab_id,
+                "kab_name" => $ibu->kab_name,
+                "kec_id" => $ibu->kec_id,
+                "kec_name" => $ibu->kec_name,
+                "kel_id" => $ibu->kel_id,
+                "kel_name" => "Meruya Selatan",
+                "posyandu_id" => $ibu->posyandu_id,
+                "posyandu_name" => $ibu->posyandu_name,
+                "status_kb" => $ibu->status_kb,
+                "jenisKb" => $ibu->jenis_kb,
+                "alamat" => $ibu->alamat,
+                "foto" => $ibu->foto,
+                "ktp" => $ibu->no_ktp,
+                "kk" => $ibu->no_kk,
+                "status" => $ibu->status
+            ]);
+        }
+//        print_r($provinsi);
+//        die();
+        return $listIbu;
+    }
+    
+    public function get_by_kel($id_kelurahan) {
+        $this->prov_name = "SELECT nama_prov FROM tb_provinsi WHERE tb_provinsi.id_prov = tb_ibu.prov_id";
+        $this->kab_name = "SELECT nama_kab FROM tb_kabupaten WHERE tb_kabupaten.id_kab = tb_ibu.kab_id";
+        $this->kec_name = "SELECT nama_kec FROM tb_kecamatan WHERE tb_kecamatan.id_kec = tb_ibu.kec_id";
+        $this->posyandu_name = "SELECT nama FROM tb_posyandu WHERE tb_posyandu.id = tb_ibu.posyandu_id";
+        $data = $this->find(array('kel_id=:pid', ':pid' => $id_kelurahan), array('order' => 'nama'));
+        $listIbu = [];
+        //echo "<pre>";
+        foreach ($data as $ibu) {
+            array_push($listIbu, [
+                "id" => $ibu->id,
+                "nama" => $ibu->nama,
+                "alias" => $ibu->alias,
+                "nama_suami" => $ibu->nama_suami,
+                "ttl" => $ibu->tgl_lahir,
+                "tl" => $ibu->tempat_lahir,
+                "prov_id" => $ibu->prov_id,
+                "prov_name" => $ibu->prov_name,
+                "kab_id" => $ibu->kab_id,
+                "kab_name" => $ibu->kab_name,
+                "kec_id" => $ibu->kec_id,
+                "kec_name" => $ibu->kec_name,
+                "kel_id" => $ibu->kel_id,
+                "kel_name" => "Meruya Selatan",
+                "posyandu_id" => $ibu->posyandu_id,
+                "posyandu_name" => $ibu->posyandu_name,
+                "status_kb" => $ibu->status_kb,
+                "jenisKb" => $ibu->jenis_kb,
+                "alamat" => $ibu->alamat,
+                "foto" => $ibu->foto,
+                "ktp" => $ibu->no_ktp,
+                "kk" => $ibu->no_kk,
+                "status" => $ibu->status
+            ]);
+        }
+//        print_r($provinsi);
+//        die();
+        return $listIbu;
+    }
+    
+    public function getPosyandu($id) {
+        $this->load(array('id=:pid', ':pid' => $id));
+        return $this->posyandu_id;
     }
 
 }

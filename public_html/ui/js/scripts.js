@@ -16,7 +16,7 @@ WS = {
                 .done(function (data)
                 {
                     WS.result = data;
-                    
+
                     if (callback && typeof (callback) === "function") {
                         callback();
                     }
@@ -103,7 +103,8 @@ var MAPPING = {
         //console.log("isi data=>" + JSON.stringify($data));
         if ($data.length > 0) {
             //masukan data provinsi
-            $(el).html('');
+            $(el).html('<option value="0">-Pilih-</option>');
+
             optionlist = '';
             $.each($data, function (idx, val)
             {
@@ -122,6 +123,7 @@ var MAPPING = {
                 }
                 optionlist += '<option value="' + id + '">' + nama + '</option>';
             });
+
             $(el).append(optionlist);
         }
     },
@@ -168,6 +170,7 @@ var MAPPING = {
     },
     getKab: function ($id)
     {
+        console.log('getKab');
         this.selected.prov = $id;
         id_kab = 'kab' + $id;
         localforage.getItem(id_kab, function (err, value)
@@ -293,19 +296,38 @@ var MAPPING = {
     },
     getLokasi: function ()
     {
-//        if (navigator.geolocation) {
-//            navigator.geolocation.getCurrentPosition(function (position)
-//            { // on success
-//                MAPPING.posisi.latitude = position.coords.latitude;
-//                MAPPING.posisi.longitude = position.coords.longitude;
-//            }, function (error)
-//            { // on error
-//                console.log('code: ' + error.code + '\n' +
-//                        'message: ' + error.message + '\n');
-//            });
-//        } else {
-//            console.log("Geolocation is not supported.");
-//        }
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position)
+            { // on success
+                MAPPING.posisi.latitude = position.coords.latitude;
+                MAPPING.posisi.longitude = position.coords.longitude;
+            }, function (error)
+            { // on error
+                console.log('code: ' + error.code + '\n' +
+                        'message: ' + error.message + '\n');
+            });
+        } else {
+            console.log("Geolocation is not supported.");
+        }
+    },
+    getPosyandu: function ($id) {
+        console.log('Masuk getPosyandu');
+        WS.data = "kelurahan=" + $id;
+        WS.post('list/posyandu', function () {
+            $data = WS.result.response_data.data_posyandu;
+             console.log($data);
+            if ($data.length > 0) {
+                //masukan data provinsi
+                $('#list-posyandu').html('<option value="0">-Pilih-</option>');
+
+                optionlist = '';
+                $.each($data, function (idx, val)
+                {
+                    optionlist += '<option value="' + val.id + '">' +val.id +'-' + val.nama + '</option>';
+                });
+                $('#list-posyandu').append(optionlist);
+            }
+        });
     }
 };
 
@@ -338,3 +360,17 @@ $(document).on('change', '#kec', function ()
     $('#kel').removeAttr("disabled");
     MAPPING.getKel(id_kec);
 });
+
+function hitungUsia(ttl){
+    months = moment().diff(moment(ttl, 'YYYY-MM-DD'), 'months');
+    var y = Math.floor(months / 12);
+    var m = months - (y * 12);
+    m = m.toFixed(1);
+
+    if (y > 0) {
+      //return y + 'y, ' + m + 'm';
+	  return y + 'th, ' + m + 'bln';
+    } else {
+      return m + 'bln';
+    }
+  }

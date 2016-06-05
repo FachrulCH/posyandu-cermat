@@ -25,12 +25,17 @@ ANAK = {
                 },
 //                {data: 'ttl'},
                 {
-                    data: 'ttl', render: function (ttl, tipe, row) {
-                        return row.lahir + ', ' + ttl;
+                    data: 'tanggal_lahir', render: function (tanggal_lahir, tipe, row) {
+                        return row.tempat_lahir + ', ' + tanggal_lahir;
                     }
                 },
-                {data: 'noKK'},
-                {data: 'posyandu'}
+                {
+                    data: 'tanggal_lahir', render: function (tanggal_lahir) {
+                        return hitungUsia(tanggal_lahir);
+                    }
+                },
+                {data: 'ibu_nama'},
+                {data: 'kms_id'}
             ]
         });
 

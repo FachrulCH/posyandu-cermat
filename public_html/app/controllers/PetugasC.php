@@ -84,4 +84,29 @@ class PetugasC
         $f3->set('content', 'pg-daftar-petugas.html');
         echo \Template::instance()->render('templates/layout.html');
     }
+    
+    function getAll(){
+        $f3 = \Base::instance();
+        $f3->set('breadcumb', ["Master" => $f3->get('SESSION.LastPageURL'), "Kader" => $f3->get('SESSION.LastPageURL')]);
+        $f3->set('loadCSS', [
+            'custom',
+            'dataTables.bootstrap.min'
+        ]);
+        
+        $f3->set('headJS', []);
+        $f3->set('loadJS', [
+            'jquery.flot',
+            'jquery.nicescroll',
+            'localforage.min',
+            'scripts',
+            'jquery.dataTables.min',
+            'dataTables.bootstrap.min'
+        ]);
+        $f3->set('customJS', []);
+        $f3->set('vendorJS', []);
+        $f3->set('pageJS', ['daftar-kader']);
+        
+        $f3->set('content', 'pg-daftar-kader.html');
+        echo \Template::instance()->render('templates/layout.html');
+    }
 }

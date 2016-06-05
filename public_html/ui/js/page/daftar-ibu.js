@@ -13,13 +13,14 @@ IBU = {
                     }
                 },
                 {data: 'kode'},
-                {data: 'kk'},
                 {data: 'ktp'},
                 {data: 'nama'},
                 {data: 'nama_suami'},
                 {data: 'alamat'},
-                {data: 'kel'},
-                {data: 'posyandu'}
+                {data: 'kel_name'},
+                {data: 'kec_name'},
+                {data: 'kab_name'},
+                {data: 'posyandu_name'}
             ]
         });
 
@@ -48,11 +49,15 @@ IBU = {
             $('#kot').val(data.kota);
             $('#kec').val(data.kec);
             $('#kel').val(data.kel);
-            $('#posyanduIbu').val(data.posyandu);
+            $('#list-posyandu').val(data.posyandu);
             $('#kb').val(data.status_kb);
             $('#jenisKb').val(data.jenisKb);
             $('#alamat').val(data.alamat);
             $('#no_ktp').val(data.ktp);
+            $('#no_kk').val(data.kk);
+            $('#namaPanggilan').val(data.alias);
+            $('#tl').val(data.tl);
+            $('#kode_ibu').val(data.kode);
         }
 
         //setTimeout(function () {
@@ -62,7 +67,7 @@ IBU = {
     tambah: function () {
         var ibuBaru = {
             foto: "in.jpg",
-            kode: null,
+            id: $('#kode_ibu').val(),
             kk: $('#no_kk').val(),
             ktp: $('#no_ktp').val(),
             nama: $('#nama').val(),
@@ -74,7 +79,7 @@ IBU = {
             kota: $('#kot').val(),
             kec: $('#kec').val(),
             kel: $('#kel').val(),
-            posyandu: $('#posyanduIbu').val(),
+            posyandu: $('#list-posyandu').val(),
             status_kb: $('#kb').val(),
             jenis_kb: $('#jenisKb').val(),
             alamat: $('#alamat').val()
@@ -96,7 +101,7 @@ IBU = {
 
             // sorting yg id paling baru di atas
             table.order([1, 'desc']).draw();
-            
+
             alert("Berhasil tersimpan");
         });
     },
@@ -121,10 +126,12 @@ $(document).ready(function () {
         IBU.inisiasi();
     });
 
-    $('#btn-submit').on('click', function (e) {
-        e.preventDefault();
-        IBU.tambah();
-    });
+    MAPPING.getProvinsi();
+
+//    $('#btn-submit').on('click', function (e) {
+//        e.preventDefault();
+//        IBU.tambah();
+//    });
 
     $('#btn-tambah').on('click', function () {
         IBU.aksi = 'tambah';
@@ -137,7 +144,6 @@ $(document).ready(function () {
     });
 
     $(document).on('click', '#btn-hapus', function () {
-        $('#span_namaibu').text(IBU.pilihan.nama);
         $('#mdl-hapus').modal('show');
     });
 
@@ -149,6 +155,13 @@ $(document).ready(function () {
     $(document).on('click', '#btn-detail', function () {
         //$('#mdl-detail').modal('show');
         IBU.detail();
+    });
+
+    $(document).on('change', '#kel', function ()
+    {
+        $('#list-posyandu').removeAttr("disabled");
+        var id_kel = this.selectedOptions[0].value;
+        MAPPING.getPosyandu(id_kel);
     });
 
     if (window.location.href.indexOf('#tambah') != -1) {

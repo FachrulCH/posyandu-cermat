@@ -17,6 +17,9 @@ var POSYANDU = {
                 {
                     console.log('balikan posyandu.getData');
                     POSYANDU.list = data.response_data.data_posyandu;
+                    POSYANDU.drawTable();
+                    POSYANDU.loadMap();
+
                 })
                 .fail(function ()
                 {
@@ -31,7 +34,7 @@ var POSYANDU = {
     {
 
         console.log('Bikin peta');
-        console.log(POSYANDU.list);
+//        console.log(POSYANDU.list);
 
         var jumlah_posyandu = POSYANDU.list.length;
         if (jumlah_posyandu > 0) {
@@ -45,7 +48,7 @@ var POSYANDU = {
 
         function gambarPosyandu() {
             console.log('gambar Posyandu untuk');
-            
+
             var mapOptions = {
                 center: new google.maps.LatLng(MAPPING.posisi.latitude, MAPPING.posisi.longitude),
                 zoom: 14,
@@ -56,11 +59,11 @@ var POSYANDU = {
             //Create and open InfoWindow.
             var infoWindow = new google.maps.InfoWindow();
             var jumlah_posyandu = POSYANDU.list.length;
-            
+
             for (var i = 0; i < jumlah_posyandu; i++) {
                 var data = POSYANDU.list[i];
-                console.log(data);
-                var myLatlng = new google.maps.LatLng(data.koordinat.lat, data.koordinat.lng);
+                //console.log(data);
+                var myLatlng = new google.maps.LatLng(data.latitude, data.longitude);
                 var marker = new google.maps.Marker({
                     position: myLatlng,
                     map: map,
@@ -83,35 +86,34 @@ var POSYANDU = {
     construct: function ()
     {
         POSYANDU.getData();
-        POSYANDU.loadMap();
-        POSYANDU.drawTable();
     },
     drawTable: function ()
     {
         var table = $("#table-posyandu").DataTable({
             data: POSYANDU.list,
             columns: [
-                {data: 'kode'},
+                {data: 'id'},
                 {data: 'nama'},
                 {data: 'alamat'},
-                {
-                    data: 'koordinat.lat', render: function ()
-                    {
-                        return 'Peta';
-                    }
-                },
-                {data: 'kader_jum'},
-                {
-                    data: 'status', render: function (data)
-                    {
-                        if (data == 1) {
-                            return 'Aktif';
-                        } else {
-                            return 'Non Aktif';
-                        }
-                    }
-                }
+                {data: 'kel_name'},
+                {data: 'kec_name'},
+                {data: 'kab_name'},
+                {data: 'prov_name'}
             ]
+        });
+        
+        $('#table-posyandu tbody').on('click', 'tr', function ()
+        {
+            POSYANDU.selected = table.row(this).data();
+
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+                $('#row-selected').fadeOut('slow');
+            } else {
+                table.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+                $('#row-selected').fadeIn('slow');
+            }
         });
     },
     form: function (data)
@@ -119,9 +121,9 @@ var POSYANDU = {
         if (data.length == 0) {
             $('#form-posyandu')[0].reset();
         } else {
-            $('#id_posyandu').val(data.kode);
+            $('#id_posyandu').val(data.id);
             $('#nama').val(data.nama);
-            $('#kader').val(data.kader_jum);
+            $('#kader').val();
             $('#aktif').val(data.status);
             $('#alamat').val(data.alamat);
         }
@@ -139,19 +141,7 @@ $(document).ready(function ()
     POSYANDU.construct();
 
 
-    $('#table-posyandu tbody').on('click', 'tr', function ()
-    {
-        POSYANDU.selected = table.row(this).data();
 
-        if ($(this).hasClass('selected')) {
-            $(this).removeClass('selected');
-            $('#row-selected').fadeOut('slow');
-        } else {
-            table.$('tr.selected').removeClass('selected');
-            $(this).addClass('selected');
-            $('#row-selected').fadeIn('slow');
-        }
-    });
 });
 
 var stillPresent = false;
@@ -186,6 +176,7 @@ $('#mdl-tambah').on('shown.bs.modal', function (e)
                     latitude: currentLocation.latitude,
                     longitude: currentLocation.longitude
                 };
+
             }
         });
         stillPresent = true;
@@ -197,13 +188,13 @@ $(document).on('click', '#btn-ubah', function ()
     POSYANDU.form(POSYANDU.selected);
 });
 
-$('#form-posyandu').on('submit', function (e)
+$(document).on('click', '#btn-submit', function (e)
 {
     e.preventDefault();
-    var $this = $(this);
-    $('#btn-submit').button('loading');
-    setTimeout(function ()
-    {
-        $('#btn-submit').button('reset');
-    }, 3000);
+
+    $('#hid-lat').val(POSYANDU.selected.posisi.latitude);
+    $('#hid-lng').val(POSYANDU.selected.posisi.longitude);
+
+    $('#form-posyandu').submit();
 });
+

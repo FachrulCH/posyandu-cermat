@@ -3,7 +3,7 @@
         <div class="col-md">
             <a href="<?php echo $BASE_URL .'petugas/'. $petugas['id']; ?>">
             <div class="gallery-img">
-                <img class="img-responsive " src="<?php echo $BASE_URL .'gambar/petugas/'. $petugas['foto']; ?>" alt=""/>
+                <img class="img-responsive " src="<?php echo $BASE_URL .'gambar/petugas/'. $petugas['foto']; ?>" alt="<?php echo $petugas['nama']; ?>"/>
             </div>
             <div class="text-gallery">
                 <h6><?php echo $petugas['nama']; ?></h6>

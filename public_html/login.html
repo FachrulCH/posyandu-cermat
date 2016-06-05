@@ -26,19 +26,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <h1><a href="0_index.html">Posyandu Cermat</a></h1>
             <div class="login-bottom">
                 <h2>Masuk</h2>
-                <form id="form-login">
+                <form id="form-login" action="login" method="post">
                     <div class="col-md-6">
                         <div class="login-mail">
-                            <input type="text" placeholder="Email" required="" id="email">
+                            <input type="text" placeholder="ID Kader" required="" id="email" name="logid">
                             <i class="fa fa-envelope"></i>
                         </div>
                         <div class="login-mail">
-                            <input type="password" placeholder="Kata Sandi" required="">
+                            <input type="password" placeholder="Kata Sandi" required="" name="logpass">
                             <i class="fa fa-lock"></i>
                         </div>
-                        <a class="news-letter " href="#">
-                            <label class="checkbox1"><input type="checkbox" name="checkbox" ><i> </i>Lupa kata sandi</label>
-                        </a>
+                        <!--                        <a class="news-letter " href="#">
+                                                    <label class="checkbox1"><input type="checkbox" name="checkbox" ><i> </i>Lupa kata sandi</label>
+                                                </a>-->
 
 
                     </div>
@@ -46,34 +46,51 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <label class="hvr-shutter-in-horizontal login-sub">
                             <input type="submit" value="login">
                         </label>
-                        <p>Belum punya akun?</p>
-                        <a href="signup.html" class="hvr-shutter-in-horizontal">Daftar</a>
+                        <!--                        <p>Belum punya akun?</p>
+                                                <a href="signup.html" class="hvr-shutter-in-horizontal">Daftar</a>-->
                     </div>
 
                     <div class="clearfix"> </div>
                 </form>
             </div>
         </div>
+        <div class="modal fade" id="mdl-gagal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Gagal login</h4>
+                    </div>
+                    <div class="modal-body">Silahkan periksa ID dan Kata sandi anda</div>
+                    <div class="modal-footer">
+                            <button type="reset" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
         <!---->
         <div class="copy-right">
             <p> &copy; 2016 Minimal. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>	    </div>  
         <!---->
         <!--scrolling js-->
         <script src="ui/js/jquery.nicescroll.js"></script>
-        <script src="ui/js/scripts.js"></script>
+        <!--        <script src="ui/js/scripts.js"></script>-->
         <!--//scrolling js-->
-    <script>
-        $(document).ready(function () {
-            $('#form-login').submit(function (e) {
-                e.preventDefault();
-                if ($('#email').val().length < 4){
-                    alert("Input minimal 4 karakter");
-                }else{
-                    window.isLogin = true;
-                    window.location.href = 'http://fachrul.net/posyandu/public_html/';
-                }
-            });
-        })
-    </script>
+        <script>
+$(document).ready(function () {
+    //            $('#form-login').submit(function (e) {
+    //                e.preventDefault();
+    //                if ($('#email').val().length < 4){
+    //                    alert("Input minimal 4 karakter");
+    //                }else{
+    //                    window.isLogin = true;
+    //                    window.location.href = 'http://fachrul.net/posyandu/public_html/';
+    //                }
+    //            });
+    if (window.location.href.indexOf('#gagal') != -1) {
+        $('#mdl-gagal').modal('show');
+    }
+});
+        </script>
     </body>
 </html>

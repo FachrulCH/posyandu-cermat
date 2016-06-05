@@ -58,5 +58,35 @@ class Debug {
         echo "hai <pre>";
         print_r($params);
     }
+    
+    function listpost($f3, $params){
+        //print_r($params);
+        $posyandu = new \models\PosyanduM();
+        $id_kel = 1101012001;
+        $data = $posyandu->listPosyandu($id_kel);
+        echo '<pre>';
+        print_r($data);
+    }
+    
+    function periode($f3){
+        echo "<pre>";
+        $periode = new \models\PeriodeM();
+        $start = $periode->get_by_posyandu('PSY1605');
+        print_r($start);
+    }
+    
+    function periksa($f3){
+        echo "<pre>";
+        $anak = new \models\AnakM();
+        $data = $anak->pemeriksaan(1);
+        print_r($data);
+    }
+    
+    function posyanduibu($f3){
+        echo "<pre>";
+        $ibu = new \models\IbuM();
+        $data =$ibu->getPosyandu('IBU1605');
+        print_r($data);
+    }
 
 }

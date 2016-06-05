@@ -28,8 +28,9 @@
                         <th>Nama Anak</th>
                         <th>Jenis Kelamin</th>
                         <th>Tempat tanggal lahir</th>
-                        <th>No KK</th>
-                        <th>Posyandu</th>
+                        <th>Usia</th>
+                        <th>Ibu</th>
+                        <th>No KMS</th>
                     </tr>
                 </thead>
             </table>
@@ -47,29 +48,30 @@
                 <h2 class="modal-title">Pendaftaran Anak</h2>
             </div>
             <div class="modal-body">
-                <form action="#" id="form-anak" method="post">
+                <form action="{{@BASE_URL}}anak/simpan" id="form-anak" method="post">
                     <div class="form-group">
                         <label for="kode_ibu">Kode</label>
-                        <input type="text" class="form-control" id="kode_anak"
-                               placeholder="Kode akan di generate sisitem" disabled>
+                        <input type="text" class="form-control" id="kode_anak" placeholder="Kode akan di generate sisitem" name="id" readonly="">
+                    </div>
+                    <div class="form-group">
+                        <label for="kms_no">No KMS</label>
+                        <input type="text" class="form-control" id="kms_no" placeholder="No kartu KMS" required="required" name="kms_no">
                     </div>
                     <div class="form-group">
                         <label for="nama">Nama</label>
-                        <input type="text" class="form-control" id="nama" placeholder="Nama anak"
-                               required="required">
+                        <input type="text" class="form-control" id="nama" placeholder="Nama anak" required="required" name="nama">
                     </div>
                     <div class="form-group">
                         <label for="alias">Nama Panggilan</label>
-                        <input type="text" class="form-control" id="alias" placeholder="Nama panggilan" required="required">
+                        <input type="text" class="form-control" id="alias" placeholder="Nama panggilan" required="required" name="alias">
                     </div>
                     <div class="form-group">
-                        <label for="namaIbu">Nama Ibu</label>
-                        <select class="selectpicker" data-live-search="true">
+                        <label for="namaIbu">Nama Ibu</label><br/>
+                        <select class="selectpicker" data-live-search="true" name="ibu">
                             <option>-Pilih ibu-</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
+                            <repeat group="{{@list_ibu}}" value="{{@ibu}}">
+                                <option value="{{@ibu['id']}}">{{@ibu['id'] .'-'. @ibu['nama']}}</option>
+                            </repeat>
                         </select>
                     </div>
 
@@ -77,11 +79,11 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="lahir">Tempat Lahir</label>
-                                <input type="text" class="form-control" id="lahir" placeholder="Jakarta" required="required">
+                                <input type="text" class="form-control" id="lahir" placeholder="Jakarta" required="required" name="tl">
                             </div>
                             <div class="col-md-6">
                                 <label for="ttl">Tanggal Lahir</label>
-                                <input type="date" class="form-control" id="ttl" required="required">
+                                <input type="date" class="form-control" id="ttl" required="required" name="ttl">
                             </div>
                         </div>
                     </div>
@@ -97,7 +99,7 @@
                     <div class="form-inline form-group" style="width: 200px">
                         <div class="input-group">
                             <div class="input-group-addon">Anak Ke-</div>
-                            <input type="number" class="form-control" id="urutan" required="required" min="1" max="9">
+                            <input type="number" class="form-control" id="urutan" required="required" min="1" max="9" name="urutan">
                         </div>
                     </div>
                     <div class="form-group">
@@ -106,14 +108,11 @@
                         <input type="file" id="foto-upload">
                         <p class="help-block">Pilih foto anak jika ada</p>
                     </div>
-
+                    <button type="submit" class="btn btn-success" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Mohon tunggu" id="btn-submit">Submit</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-success" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Mohon tunggu" id="btn-submit">Submit
-                    </button>
                 </form>
             </div>
             <div class="modal-footer">
-
             </div>
         </div>
     </div>

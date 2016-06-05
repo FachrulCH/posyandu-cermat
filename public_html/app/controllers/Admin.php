@@ -14,6 +14,11 @@ class Admin
     function Dashboard()
     {
         $f3 = \Base::instance();
+        
+        if ($f3->get('SESSION.logedin') == false){
+            $f3->reroute('/login.html');
+        }
+        
         $f3->set('breadcumb', ["Dashboard" => $f3->get("BASE_URL")]);
         $f3->set('loadCSS',[
             'graph',
