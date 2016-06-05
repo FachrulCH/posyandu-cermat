@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: kurawall
@@ -8,31 +9,32 @@
 
 namespace models;
 
+class PosyanduM extends \DB\SQL\Mapper {
 
-class PosyanduM extends \DB\SQL\Mapper
-{
-    function __construct()
-    {
+    function __construct() {
         $f3 = \Base::instance();
         $db = $f3->get('DB');
         parent::__construct($db, 'tb_posyandu');
     }
 
-    function getProfile($id)
-    {
+    function getProfile($id) {
         
     }
-    
+
     public function listPosyandu($id_kel) {
-        $list = $this->find(array('kel_id=:pid', ':pid' => $id_kel), array('order' => 'nama'));
+        if ($id_kel == '*') {
+            $list = $this->find();
+        } else {
+            $list = $this->find(array('kel_id=:pid', ':pid' => $id_kel), array('order' => 'nama'));
+        }
         $list_posyandu = [];
-        foreach ($list as $posyandu){
+        foreach ($list as $posyandu) {
             array_push($list_posyandu, $posyandu->cast());
         }
-        
+
         return $list_posyandu;
     }
-    
+
     public function getAll() {
         $this->prov_name = "SELECT nama_prov FROM tb_provinsi WHERE tb_provinsi.id_prov = tb_posyandu.prov_id";
         $this->kab_name = "SELECT nama_kab FROM tb_kabupaten WHERE tb_kabupaten.id_kab = tb_posyandu.kab_id";
@@ -40,22 +42,22 @@ class PosyanduM extends \DB\SQL\Mapper
         $this->kel_name = "SELECT nama_kel FROM tb_kelurahan WHERE tb_kelurahan.id_kel = tb_posyandu.kel_id";
         $list = $this->find();
         $list_posyandu = [];
-        foreach ($list as $posyandu){
+        foreach ($list as $posyandu) {
             array_push($list_posyandu, $posyandu->cast());
         }
         return $list_posyandu;
     }
-    
+
     public function simpan($posyandu) {
-        if (empty($posyandu['id'])){
+        if (empty($posyandu['id'])) {
             $sq = new \models\SequencesM();
             $id = $sq->get_posyandu();
             $this->id = $id;
-        }else{
+        } else {
             $id = $posyandu['id'];
             $this->load(array('id=:pid', ':pid' => $id));
         }
-        
+
         $this->nama = $posyandu['posyandu-name'];
         $this->alamat = $posyandu['alamat'];
         $this->rtrw = $posyandu['rtrw'];
@@ -71,4 +73,5 @@ class PosyanduM extends \DB\SQL\Mapper
         $this->save();
         return $this->get('_id');
     }
+
 }
